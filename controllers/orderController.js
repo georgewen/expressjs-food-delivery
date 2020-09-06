@@ -16,6 +16,17 @@ exports.get_order_byId = async (req, res) => {
       }
 };
 
+exports.get_orders_byUser = async (req, res) => {
+  console.log(req.params.UserName);
+  try {
+      const orders = await Order.find({ "Username": req.params.UserName });
+      //const orders = await Order.find();
+      res.send(orders)
+    } catch {
+      res.status(404)
+      res.send({ error: "Order doesn't exist!" })
+    }
+};
 
 exports.create_Order = function(req, res) {
 

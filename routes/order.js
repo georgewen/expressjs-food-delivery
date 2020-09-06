@@ -11,6 +11,6 @@ router.delete('/:id',order_controller.delete_order);
 
 // About page route.
 router.get('/create', order_controller.create_Order);
-
+router.get('/my/:UserName', order_controller.get_orders_byUser);
 
 module.exports = router;

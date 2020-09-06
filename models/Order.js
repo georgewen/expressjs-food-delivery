@@ -10,7 +10,7 @@ const order_Schema = new Schema({
     UserName: String,
     OrderLines: [
        {
-        menuId: {type: Schema.Types.ObjectId, ref: 'MenuItem', requried: true},
+        Id: Number,//{type: Schema.Types.ObjectId, ref: 'MenuItem', requried: true},
         name: String,
         price: Number,
         qty: Number,
