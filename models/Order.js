@@ -3,14 +3,14 @@ const mongoose = require("mongoose")
 var Schema = mongoose.Schema;
 
 const order_Schema = new Schema({
-    OrderNumber: Number,
-    OrderDate: Date,
-    SubTotal: Number,
-    Status: String,
-    UserName: String,
-    OrderLines: [
+    id: Schema.Types.ObjectId,
+    orderdate: Date,
+    subtotal: Number,
+    status: String,
+    username: String,
+    orderlines: [
        {
-        Id: Number,//{type: Schema.Types.ObjectId, ref: 'MenuItem', requried: true},
+        id: String,//{type: Schema.Types.ObjectId, ref: 'MenuItem', requried: true},
         name: String,
         price: Number,
         qty: Number,

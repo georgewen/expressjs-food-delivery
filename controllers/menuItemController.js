@@ -4,7 +4,7 @@ var MenuItem = require('../models/MenuItem');
 exports.create_menuitems = function(req, res) {
 
     var item = new MenuItem({
-        id: 2, //Id is reserved for _id ? 
+       // id: 2, //Id is reserved for _id ? 
         name: "pizza",
         price: 1695,
         qty:1,
@@ -16,6 +16,8 @@ exports.create_menuitems = function(req, res) {
     item.save(function(err) {
         if (err) return handleError(err);
     });
+    
+    console.log(item);
 
     res.send('A new sample record has been inserted!');
 };
@@ -106,7 +108,10 @@ exports.get_menuitems = async (req, res) => {
     //     },                
     // ]   ;
 
-    res.send(allitems);
+    //res.send(allitems);    
+    res.json({"data": allitems});
+
+
     //res.send('NOT IMPLEMENTED: Book create GET');
 };
 
@@ -114,7 +119,10 @@ exports.get_menuitems = async (req, res) => {
 exports.get_menuitem_byId = async (req, res) => {
     try {
         const item = await MenuItem.findOne({ _id: req.params.id })
-        res.send(item)
+        
+        //res.send(item)
+        res.json({"data": item})
+
       } catch {
         res.status(404)
         res.send({ error: "Order doesn't exist!" })

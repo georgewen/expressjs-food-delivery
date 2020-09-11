@@ -37,9 +37,9 @@ app.use(function(req, res, next) {
 app.use('/', indexRouter);
 
 var menuitem = require('./routes/menuitem');
-app.use('/menu',menuitem);
+app.use('/api/menuitems',menuitem);
 
 var order = require('./routes/order');
-app.use('/order',order);
+app.use('/api/orders',order);
 
 module.exports = app;

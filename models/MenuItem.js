@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 var Schema = mongoose.Schema;
 
 const menuitem_Schema = new Schema({
-  id: String,
+  id: Schema.Types.ObjectId,
   name: String,
   price: Number,
   qty: Number,
